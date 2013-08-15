@@ -1,0 +1,37 @@
+inherit qt5-qmake
+
+NAME="qt5-svg"
+VERSION=5.1.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Qt C++ application framework (SVG loader)"
+DESCRIPTION="Qt is a cross-platform application framework for desktop and
+embedded development. Qt enables programmers to create advanced GUI
+applications once and deploy them to Windows, Mac OS X and Linux without
+rewriting the source code. Companies using Qt can leverage software
+investments made on one platform across many others."
+HOMEPAGE="http://qt-project.org/"
+SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtsvg-opensource-src-${VERSION}.tar.xz"
+SRC_DIR="qtsvg-opensource-src-${VERSION}"
+
+PKG_NAMES="libQt5Svg5 libQt5Svg-devel ${NAME}-examples"
+libQt5Svg5_CONTENTS="
+	usr/bin/cygQt5Svg-5.dll
+	usr/lib/qt5/plugins/iconengines/cygqsvgicon.dll
+	usr/lib/qt5/plugins/imageformats/cygqsvg.dll
+"
+libQt5Svg_devel_CONTENTS="
+	usr/include/qt5/QtSvg/
+	usr/lib/cmake/Qt5Svg/
+	usr/lib/libQt5Svg.*
+	usr/lib/pkgconfig/Qt5Svg.pc
+	usr/lib/qt5/mkspecs/modules/qt_lib_svg.pri
+"
+qt5_svg_examples_CONTENTS="usr/lib/qt5/examples/svg/"
+
+src_install() {
+	cd ${B}
+	qt5_qmake_install
+
+	rm ${D}/usr/lib/*.la
+}
