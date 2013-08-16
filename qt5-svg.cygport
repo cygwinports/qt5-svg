@@ -14,7 +14,7 @@ HOMEPAGE="http://qt-project.org/"
 SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtsvg-opensource-src-${VERSION}.tar.xz"
 SRC_DIR="qtsvg-opensource-src-${VERSION}"
 
-PKG_NAMES="libQt5Svg5 libQt5Svg-devel ${NAME}-examples"
+PKG_NAMES="libQt5Svg5 libQt5Svg-devel ${NAME}-doc ${NAME}-examples"
 libQt5Svg5_CONTENTS="
 	usr/bin/cygQt5Svg-5.dll
 	usr/lib/qt5/plugins/iconengines/cygqsvgicon.dll
@@ -27,11 +27,19 @@ libQt5Svg_devel_CONTENTS="
 	usr/lib/pkgconfig/Qt5Svg.pc
 	usr/lib/qt5/mkspecs/modules/qt_lib_svg.pri
 "
+qt5_svg_doc_CATEGORY="Doc"
+qt5_svg_doc_CONTENTS="usr/share/qt5/doc/qtsvg*"
+qt5_svg_examples_CATEGORY="X11"
 qt5_svg_examples_CONTENTS="usr/lib/qt5/examples/svg/"
+
+src_compile() {
+	cd ${B}
+	cygqmake5 ${S}
+	cygmake
+	cygmake docs
+}
 
 src_install() {
 	cd ${B}
-	qt5_qmake_install
-
-	rm ${D}/usr/lib/*.la
+	qt5_qmake_install install_docs
 }
