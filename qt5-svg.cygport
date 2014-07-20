@@ -1,7 +1,7 @@
 inherit qt5-qmake
 
 NAME="qt5-svg"
-VERSION=5.1.0
+VERSION=5.2.1
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Qt C++ application framework (SVG loader)"
