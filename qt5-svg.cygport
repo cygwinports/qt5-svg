@@ -19,6 +19,7 @@ libQt5Svg5_CONTENTS="
 	usr/bin/cygQt5Svg-5.dll
 	usr/lib/qt5/plugins/iconengines/cygqsvgicon.dll
 	usr/lib/qt5/plugins/imageformats/cygqsvg.dll
+	usr/share/doc/
 "
 libQt5Svg_devel_CONTENTS="
 	usr/include/qt5/QtSvg/
