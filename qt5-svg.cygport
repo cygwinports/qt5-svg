@@ -1,7 +1,7 @@
 inherit qt5-qmake
 
 NAME="qt5-svg"
-VERSION=5.2.1
+VERSION=5.3.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Qt C++ application framework (SVG loader)"
@@ -17,7 +17,6 @@ SRC_DIR="qtsvg-opensource-src-${VERSION}"
 PKG_NAMES="libQt5Svg5 libQt5Svg-devel ${NAME}-doc ${NAME}-examples"
 libQt5Svg5_CONTENTS="
 	usr/bin/cygQt5Svg-5.dll
-	usr/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake
 	usr/lib/qt5/plugins/iconengines/cygqsvgicon.dll
 	usr/lib/qt5/plugins/imageformats/cygqsvg.dll
 	usr/share/doc/
